@@ -29,6 +29,7 @@ jobs:
         run: |
           cd wasm
           cargo build
+          cargo install wasm-pack
           wasm-pack build --out-dir ../wasm-build
           
       - name: Install yarn deps
