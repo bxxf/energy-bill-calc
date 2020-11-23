@@ -1,6 +1,6 @@
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
-pub fn add_two_ints(a: u32, b: u32) -> u32 {
+pub fn calculate(num: f32) -> f32 {
    a + b
 }

@@ -18,7 +18,14 @@ module.exports = [
   {
     test: /\.module\.s(a|c)ss$/,
     use: [
-      !isProd ? 'style-loader' : MiniCssExtractPlugin.loader,
+      !isProd
+        ? 'style-loader'
+        : {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '',
+            },
+          },
       {
         loader: 'css-loader',
         options: {
@@ -38,7 +45,14 @@ module.exports = [
     test: /\.s(a|c)ss$/,
     exclude: /\.module.(s(a|c)ss)$/,
     use: [
-      !isProd ? 'style-loader' : MiniCssExtractPlugin.loader,
+      !isProd
+        ? 'style-loader'
+        : {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '',
+            },
+          },
       'css-loader',
       {
         loader: 'sass-loader',

@@ -5,9 +5,9 @@ const paths = require('./paths');
 module.exports = {
   mode: 'production',
   output: {
-    filename: `${paths.jsFolder}/[name].[hash].js`,
+    filename: `${paths.jsFolder}/[hash].js`,
     path: paths.outputPath,
-    chunkFilename: '[name].[chunkhash].js',
+    chunkFilename: '[chunkhash].js',
   },
   plugins: [
     new CleanWebpackPlugin([paths.outputPath.split('/').pop()], {

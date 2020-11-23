@@ -23,14 +23,17 @@ module.exports = {
     new webpack.ProgressPlugin(),
     new HtmlWebpackPlugin({
       template: paths.templatePath,
-      minify: {
-        collapseInlineTagWhitespace: true,
-        collapseWhitespace: true,
-        preserveLineBreaks: true,
-        minifyURLs: true,
-        removeComments: true,
-        removeAttributeQuotes: true,
-      },
+      inject: 'body',
+      minify: isProd
+        ? {
+            collapseInlineTagWhitespace: true,
+            collapseWhitespace: true,
+            preserveLineBreaks: true,
+            minifyURLs: true,
+            removeComments: true,
+            removeAttributeQuotes: true,
+          }
+        : undefined,
     }),
     new MiniCssExtractPlugin({
       filename: !isProd ? '[name].css' : 'css/[name].[hash].css',
