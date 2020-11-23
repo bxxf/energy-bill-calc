@@ -1,4 +1,8 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const isProd = process.env.NODE_ENV !== 'development';
+
 module.exports = [
   {
     test: /\.js$/,
@@ -12,15 +16,46 @@ module.exports = [
     },
   },
   {
-    test: /\.css$/,
+    test: /\.module\.s(a|c)ss$/,
     use: [
-      {
-        loader: 'style-loader',
-      },
+      !isProd ? 'style-loader' : MiniCssExtractPlugin.loader,
       {
         loader: 'css-loader',
         options: {
           modules: true,
+          sourceMap: !isProd,
+        },
+      },
+      {
+        loader: 'sass-loader',
+        options: {
+          sourceMap: !isProd,
+        },
+      },
+    ],
+  },
+  {
+    test: /\.s(a|c)ss$/,
+    exclude: /\.module.(s(a|c)ss)$/,
+    use: [
+      !isProd ? 'style-loader' : MiniCssExtractPlugin.loader,
+      'css-loader',
+      {
+        loader: 'sass-loader',
+        options: {
+          sourceMap: !isProd,
+        },
+      },
+    ],
+  },
+  {
+    test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+    use: [
+      {
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          outputPath: 'fonts/',
         },
       },
     ],
@@ -41,20 +76,17 @@ module.exports = [
             '@babel/plugin-syntax-jsx',
           ],
           cacheDirectory: true,
-          cacheCompression: false,
-          compact: false,
+          cacheCompression: isProd,
+          compact: isProd,
         },
       },
     ],
   },
-
   {
-    test: /\.wasm$/, // only load WASM files (ending in .wasm)
-    // only files in our src/ folder
+    test: /\.wasm$/,
     include: path.resolve(__dirname, 'src'),
     use: [
       {
-        // load and use the wasm-loader dictionary
         loader: require.resolve('wasm-loader'),
         options: {},
       },
