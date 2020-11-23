@@ -22,6 +22,7 @@ module.exports = {
   plugins: [
     new webpack.ProgressPlugin(),
     new HtmlWebpackPlugin({
+      favicon: 'src/assets/icons/favicon.png',
       template: paths.templatePath,
       inject: 'body',
       minify: isProd
@@ -36,7 +37,7 @@ module.exports = {
         : undefined,
     }),
     new MiniCssExtractPlugin({
-      filename: !isProd ? '[name].css' : 'css/[name].[hash].css',
+      filename: !isProd ? '[name].css' : 'css/[hash].css',
       chunkFilename: !isProd ? '[id].css' : 'css/[id].[hash].css',
     }),
   ],
