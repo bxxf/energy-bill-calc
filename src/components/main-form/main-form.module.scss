@@ -1,0 +1,15 @@
+@import '/src/assets/scss/_breakpoints';
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  background: none;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+
+  z-index: 1;
+  @include mobile() {
+    flex-direction: column;
+  }
+}

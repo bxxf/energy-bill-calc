@@ -1,0 +1,30 @@
+import module from './main-input.module.scss';
+interface IProps {
+  fnc: (value: number) => void;
+}
+const validate = (value: string) => {
+  const reg = /^\d+$/;
+  if (!reg.test(value) && value.length !== 0) return false;
+  return true;
+};
+const MainInput = (props: IProps) => {
+  return (
+    <div class={module.inputgroup}>
+      <input
+        class={module.input}
+        type="number"
+        onKeyUp={(e: any) =>
+          validate(e.target.value) ? props.fnc(Number(e.target.value)) : null
+        }
+        onChange={(e: any) =>
+          validate(e.target.value) ? props.fnc(Number(e.target.value)) : null
+        }
+        min="0"
+      />
+      <div>
+        <span class={module.suffix}>kwH</span>
+      </div>
+    </div>
+  );
+};
+export default MainInput;
