@@ -3,7 +3,7 @@ interface IProps {
   fnc: (value: number) => void;
 }
 const validate = (value: string) => {
-  const reg = /^\d+$/;
+  const reg = /^\d*(\.|,)?\d*$/;
   if (!reg.test(value) && value.length !== 0) return false;
   return true;
 };
