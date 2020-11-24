@@ -11,14 +11,24 @@ module.exports = [
       loader: 'babel-loader',
       options: {
         presets: ['babel-preset-solid'],
-        plugins: ['@babel/plugin-syntax-jsx'],
+        plugins: [
+          '@babel/plugin-syntax-jsx',
+          ['@babel/plugin-proposal-decorators', { legacy: true }],
+        ],
       },
     },
   },
   {
     test: /\.module\.s(a|c)ss$/,
     use: [
-      !isProd ? 'style-loader' : MiniCssExtractPlugin.loader,
+      !isProd
+        ? 'style-loader'
+        : {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../css',
+            },
+          },
       {
         loader: 'css-loader',
         options: {
@@ -38,7 +48,14 @@ module.exports = [
     test: /\.s(a|c)ss$/,
     exclude: /\.module.(s(a|c)ss)$/,
     use: [
-      !isProd ? 'style-loader' : MiniCssExtractPlugin.loader,
+      !isProd
+        ? 'style-loader'
+        : {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '',
+            },
+          },
       'css-loader',
       {
         loader: 'sass-loader',
@@ -56,6 +73,28 @@ module.exports = [
         options: {
           name: '[name].[ext]',
           outputPath: 'fonts/',
+          publicPath: '../fonts',
+          useRelativePaths: true,
+        },
+      },
+    ],
+  },
+  {
+    test: /\.m?js/,
+    resolve: {
+      fullySpecified: false,
+    },
+  },
+  {
+    test: /\.(jpg|png)$/,
+    use: [
+      {
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          outputPath: 'images/',
+          publicPath: '../images',
+          useRelativePaths: true,
         },
       },
     ],
@@ -71,7 +110,8 @@ module.exports = [
           presets: [['@babel/preset-env'], 'solid', '@babel/preset-typescript'],
           plugins: [
             '@babel/plugin-syntax-dynamic-import',
-            '@babel/proposal-class-properties',
+            ['@babel/plugin-proposal-decorators', { legacy: true }],
+            ['@babel/proposal-class-properties', { loose: true }],
             '@babel/proposal-object-rest-spread',
             '@babel/plugin-syntax-jsx',
           ],

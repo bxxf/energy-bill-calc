@@ -1,6 +1,7 @@
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
-pub fn add_two_ints(a: u32, b: u32) -> u32 {
-   a + b
+pub fn calculate(electricity: f32, gas: f32) -> f32 {
+   let result: f32 = electricity * 5.0 + gas * 4.0;
+   result.round()
 }

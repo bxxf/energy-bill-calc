@@ -13,6 +13,7 @@
   "devDependencies": {
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-decorators": "^7.12.1",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-typescript": "^7.12.7",
     "@types/css-modules": "^1.0.1",
@@ -35,9 +36,11 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-standard": "^4.1.0",
+    "favicon-loader": "^0.0.2",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.5.0",
     "mini-css-extract-plugin": "^1.3.1",
+    "mobx": "^6.0.4",
     "node-sass": "^5.0.0",
     "postcss-loader": "^4.1.0",
     "prettier": "^2.2.0",
@@ -52,6 +55,8 @@
     "webpack-merge": "^5.4.0"
   },
   "dependencies": {
-    "solid-js": "^0.10.6"
+    "@storeon/solidjs": "^1.0.0",
+    "solid-js": "^0.10.6",
+    "storeon": "^3.1.1"
   }
 }

@@ -1,0 +1,19 @@
+/* latin-ext */
+@font-face {
+  font-family: 'LatoLatin';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/LatoLatin-Regular.woff2') format('woff2');
+}
+/* latin */
+@font-face {
+  font-family: 'LatoLatin';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/LatoLatin-Bold.woff2') format('woff2');
+}
+body {
+  font-family: 'LatoLatin', sans-serif;
+}
