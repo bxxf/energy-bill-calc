@@ -26,8 +26,13 @@
     margin-top: 20px;
     display: block;
     color: white;
+    word-wrap: break-word;
     font-size: 50px;
     font-weight: bold;
+    @include mobile() {
+      font-size: 30px;
+      margin-top: 10px;
+    }
   }
 
   .pricedesc {
@@ -35,5 +40,8 @@
     font-size: 20px;
     margin-top: 50%;
     color: white;
+    @include mobile() {
+      margin-top: 20%;
+    }
   }
 }

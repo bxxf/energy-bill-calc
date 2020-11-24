@@ -11,7 +11,10 @@ module.exports = [
       loader: 'babel-loader',
       options: {
         presets: ['babel-preset-solid'],
-        plugins: ['@babel/plugin-syntax-jsx'],
+        plugins: [
+          '@babel/plugin-syntax-jsx',
+          ['@babel/plugin-proposal-decorators', { legacy: true }],
+        ],
       },
     },
   },
@@ -77,6 +80,12 @@ module.exports = [
     ],
   },
   {
+    test: /\.m?js/,
+    resolve: {
+      fullySpecified: false,
+    },
+  },
+  {
     test: /\.(jpg|png)$/,
     use: [
       {
@@ -101,7 +110,8 @@ module.exports = [
           presets: [['@babel/preset-env'], 'solid', '@babel/preset-typescript'],
           plugins: [
             '@babel/plugin-syntax-dynamic-import',
-            '@babel/proposal-class-properties',
+            ['@babel/plugin-proposal-decorators', { legacy: true }],
+            ['@babel/proposal-class-properties', { loose: true }],
             '@babel/proposal-object-rest-spread',
             '@babel/plugin-syntax-jsx',
           ],

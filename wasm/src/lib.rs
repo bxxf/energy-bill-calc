@@ -1,6 +1,6 @@
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
-pub fn calculate(num: f32) -> f32 {
-   a + b
+pub fn calculate(electricity: f32, gas: f32) -> f32 {
+   electricity * 5.0 + gas * 4.0
 }
