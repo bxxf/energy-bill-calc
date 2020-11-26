@@ -35,10 +35,10 @@ const App = () => {
         />
         <img
           class={module.image}
-          srcset="images/image.jpg 100vw,
+          srcset="images/image.jpg 1024px,
            images/image-mobile.jpg 767px"
           alt="Background image"
-          sizes="(min-width: 768px) 100vw, (max-width: 767px) 767px"
+          sizes="(min-width: 768px) 1024px, (max-width: 767px) 767px"
         />
       </picture>
       <MainForm></MainForm>
