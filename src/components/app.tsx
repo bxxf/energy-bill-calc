@@ -35,8 +35,8 @@ const App = () => {
         />
         <img
           class={module.image}
-          srcset="image.jpg 100vw,
-           image-mobile.jpg 767px"
+          srcset="images/image.jpg 100vw,
+           images/image-mobile.jpg 767px"
           alt="Background image"
           sizes="(min-width: 768px) 100vw, (max-width: 767px) 767px"
         />
