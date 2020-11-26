@@ -14,10 +14,10 @@ const MainInput = (props: IProps) => {
         class={module.input}
         type="number"
         onKeyUp={(e: any) =>
-          validate(e.target.value) ? props.fnc(Number(e.target.value)) : null
+          validate(e.target.value) ? props.fnc(Number(e.target.value)) : {}
         }
         onChange={(e: any) =>
-          validate(e.target.value) ? props.fnc(Number(e.target.value)) : null
+          validate(e.target.value) ? props.fnc(Number(e.target.value)) : {}
         }
         min="0"
       />
