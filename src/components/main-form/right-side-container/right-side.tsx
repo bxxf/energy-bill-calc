@@ -5,7 +5,9 @@ import ConsumptionStore from '../../../stores/store';
 import { useContext } from 'solid-js';
 
 const RightSide = () => {
-  const { setElectricity, setGas } = useContext(ConsumptionStore);
+  const { setElectricity, setGas, electricityPrice, gasPrice } = useContext(
+    ConsumptionStore,
+  );
   return (
     <div class={module.rightside}>
       <h2>Výpočet ceny</h2>
@@ -25,8 +27,17 @@ const RightSide = () => {
         />
       </form>
       <div class={module.pricesinfo}>
-        <p>Cena plynu: 4 Kč/kWH</p>
-        <p>Cena elektřiny: 5 Kč/kWH</p>
+        
+        <div>
+          Cena elektřiny: {electricityPrice} Kč/kWH
+        </div>
+        <div>
+          Cena plynu: {gasPrice} Kč/kWH
+        </div>
+        <p>
+          *Tato nabídka je pouze přibližná - cena je aktualizována v intervalech
+          &nbsp;cca týdne. Výsledná cena se může lišit.
+        </p>
       </div>
     </div>
   );

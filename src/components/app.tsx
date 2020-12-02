@@ -42,6 +42,7 @@ const App = () => {
         />
       </picture>
       <MainForm></MainForm>
+      <div class={module.footer}></div>
     </div>
   );
 };
