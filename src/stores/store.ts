@@ -23,7 +23,6 @@ class ConsumptionStore {
   };
 
   getPrice = computed(() => {
-    console.log('compouting');
     return this.consumption.electricity > 0 && this.consumption.gas > 0
       ? calculate(this.consumption.electricity, this.consumption.gas)
       : 0;
