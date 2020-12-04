@@ -1,0 +1,20 @@
+/favicon.png
+  Cache-Control: public
+  Cache-Control: max-age=365000000
+  
+/*.wasm
+  Cache-Control: public
+  Cache-Control: max-age=259200
+
+/fonts/*
+  Cache-Control: public
+  Cache-Control: max-age=365000000
+  Cache-Control: immutable
+
+/images/*
+  Cache-Control: public
+  Cache-Control: max-age=604800
+
+/css/*
+  Cache-Control: public
+  Cache-Control: max-age=365000000
