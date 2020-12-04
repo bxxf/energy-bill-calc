@@ -5,7 +5,7 @@
 /*.wasm
   Cache-Control: public
   Cache-Control: max-age=259200
-
+  
 /fonts/*
   Cache-Control: public
   Cache-Control: max-age=365000000
