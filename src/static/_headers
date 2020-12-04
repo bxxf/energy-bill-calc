@@ -1,3 +1,11 @@
+/favicon.png
+  Cache-Control: public
+  Cache-Control: max-age=365000000
+  
+/*.wasm
+  Cache-Control: public
+  Cache-Control: max-age=365000000
+  
 /fonts/*
   Cache-Control: public
   Cache-Control: max-age=365000000
@@ -5,16 +13,8 @@
 
 /images/*
   Cache-Control: public
-  Cache-Control: max-age=604800# 
+  Cache-Control: max-age=604800
 
 /css/*
-  Cache-Control: public
-  Cache-Control: max-age=365000000# 
-
-favicon.png
-  Cache-Control: public
-  Cache-Control: max-age=365000000
-
-*.wasm
   Cache-Control: public
   Cache-Control: max-age=365000000
