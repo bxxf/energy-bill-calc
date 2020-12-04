@@ -3,11 +3,6 @@ import 'assets/scss/main.scss';
 import module from './app.module.scss';
 
 import MainForm from './main-form';
-// eslint-disable-next-line no-unused-vars
-const img = require('assets/images/image.jpg');
-const imgmobile = require('assets/images/image-mobile.jpg');
-const imgmobilewebp = require('assets/images/image-mobile.webp');
-const imgwebp = require('assets/images/image.webp');
 
 const App = () => {
   return (
@@ -42,6 +37,7 @@ const App = () => {
         />
       </picture>
       <MainForm></MainForm>
+      <div class={module.footer}></div>
     </div>
   );
 };

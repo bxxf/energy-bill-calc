@@ -17,12 +17,16 @@ const LeftSide = () => {
           Energií
         </h1>
         <p>
-          Kalulačka určená pro výpočet výdajů za energie (elektřina a plyn).
+          Předvídač ceny energií určený pro výpočet výdajů za energie (elektřina
+          &nbsp;a plyn).
         </p>
       </div>
       <div>
-        <span class={module.pricedesc}>Celková cena Vaší spotřeby je:</span>
+        <span class={module.pricedesc}>Za spotřebu zaplatíte:</span>
         <span class={module.price}>{price} Kč</span>
+      </div>
+      <div class={module.disclaimer}>
+        * Tato nabídka je pouze orientační, ceny jsou aktualizovány v intervalech cca týdne.
       </div>
     </div>
   );

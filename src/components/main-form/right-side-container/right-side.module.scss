@@ -30,5 +30,23 @@ form {
 .pricesinfo {
   margin-top: 50px;
   padding: 5% 0;
+  font-size: 18px;
+  color: rgb(61, 61, 61);
   border-top: 1px solid rgb(196, 196, 196);
+}
+
+.button {
+  cursor: pointer;
+  border: none;
+  font-size: 18px;
+  padding: 15px 20px;
+  background-color: rgb(236, 134, 0);
+  margin-bottom: 20px;
+  color: white;
+  border-radius: 5px;
+  a:link,
+  a:visited {
+    text-decoration: none;
+    color: white;
+  }
 }

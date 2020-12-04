@@ -5,19 +5,21 @@ import ConsumptionStore from '../../../stores/store';
 import { useContext } from 'solid-js';
 
 const RightSide = () => {
-  const { setElectricity, setGas } = useContext(ConsumptionStore);
+  const { setElectricity, setGas, electricityPrice, gasPrice } = useContext(
+    ConsumptionStore,
+  );
   return (
     <div class={module.rightside}>
       <h2>Výpočet ceny</h2>
       <p class={module.seconddesc}>Upravte parametry dle Vaší spotřeby.</p>
       <form>
-        <label>Zadejte Vaší spotřebu elektřiny:</label>
+        <label>Zadejte Vaší spotřebu elektřiny (rok):</label>
         <MainInput
           fnc={(value: number) => {
             setElectricity(value);
           }}
         />
-        <label>Zadejte Vaší spotřebu plynu:</label>
+        <label>Zadejte Vaší spotřebu plynu (rok):</label>
         <MainInput
           fnc={(value: number) => {
             setGas(value);
@@ -25,8 +27,15 @@ const RightSide = () => {
         />
       </form>
       <div class={module.pricesinfo}>
-        <p>Cena plynu: 4 Kč/kWH</p>
-        <p>Cena elektřiny: 5 Kč/kWH</p>
+        
+        
+        <button class={module.button}><a href="https://google.com">Mám zájem o nabídku</a></button>
+        <div>
+          Cena elektřiny: {electricityPrice} Kč/kWH
+        </div>
+        <div>
+          Cena plynu: {gasPrice} Kč/kWH
+        </div>
       </div>
     </div>
   );

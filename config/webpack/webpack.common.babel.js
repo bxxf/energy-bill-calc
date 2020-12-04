@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const isProd = process.env.NODE_ENV !== 'development';
 
@@ -35,6 +36,9 @@ module.exports = {
             removeAttributeQuotes: true,
           }
         : undefined,
+    }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: 'src/static' }],
     }),
     new MiniCssExtractPlugin({
       filename: !isProd ? '[name].css' : 'css/[hash].css',
