@@ -1,6 +1,7 @@
 import module from './main-input.module.scss';
 interface IProps {
   fnc: (value: number) => void;
+  id: string;
 }
 const validate = (value: string) => {
   const reg = /^\d*(\.|,)?\d*$/;
@@ -13,6 +14,7 @@ const MainInput = (props: IProps) => {
       <input
         class={module.input}
         type="number"
+        id={props.id}
         onKeyUp={(e: any) =>
           validate(e.target.value) ? props.fnc(Number(e.target.value)) : {}
         }

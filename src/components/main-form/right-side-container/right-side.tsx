@@ -13,14 +13,16 @@ const RightSide = () => {
       <h2>Výpočet ceny</h2>
       <p class={module.seconddesc}>Upravte parametry dle Vaší spotřeby.</p>
       <form>
-        <label>Zadejte Vaší spotřebu elektřiny (rok):</label>
+        <label for="electricity">Zadejte Vaší spotřebu elektřiny (rok):</label>
         <MainInput
+          id="electricity"
           fnc={(value: number) => {
             setElectricity(value);
           }}
         />
-        <label>Zadejte Vaší spotřebu plynu (rok):</label>
+        <label for="gas">Zadejte Vaší spotřebu plynu (rok):</label>
         <MainInput
+          id="gas"
           fnc={(value: number) => {
             setGas(value);
           }}

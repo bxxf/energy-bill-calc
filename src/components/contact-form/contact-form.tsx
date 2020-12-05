@@ -19,12 +19,12 @@ const ContactForm = () => {
         </textarea>
 
         <div class={module.inputgroup}>
-          <label>Vaše jméno:</label>
-          <input class={module.input} type="text" name="name" required></input>
+          <label for="name">Vaše jméno:</label>
+          <input class={module.input} type="text" name="name" id="name" required></input>
         </div>
         <div class={module.inputgroup}>
-          <label>Váš email:</label>
-          <input class={module.input} type="email" name="email" required></input>
+          <label for="email">Váš email:</label>
+          <input class={module.input} type="email" name="email" id="email" required></input>
         </div>
 
         <input class={module.submit} type="submit" value="Odeslat"></input>
