@@ -3,9 +3,12 @@ import 'assets/scss/main.scss';
 import module from './app.module.scss';
 
 import MainForm from './main-form';
+import ContactForm from './contact-form/contact-form';
+
 
 const App = () => {
   return (
+    <>
     <div class={module.layout}>
       <picture>
         <source
@@ -37,8 +40,10 @@ const App = () => {
         />
       </picture>
       <MainForm></MainForm>
-      <div class={module.footer}></div>
+      <ContactForm/>
+      
     </div>
+</>
   );
 };
 

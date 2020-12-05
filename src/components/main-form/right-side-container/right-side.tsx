@@ -27,15 +27,12 @@ const RightSide = () => {
         />
       </form>
       <div class={module.pricesinfo}>
-        
-        
-        <button class={module.button}><a href="https://google.com">Mám zájem o nabídku</a></button>
-        <div>
-          Cena elektřiny: {electricityPrice} Kč/kWH
-        </div>
-        <div>
-          Cena plynu: {gasPrice} Kč/kWH
-        </div>
+        <div>Cena elektřiny: {electricityPrice} Kč/kWH</div>
+        <div>Cena plynu: {gasPrice} Kč/kWH</div>
+      </div>
+      <div class={module.disclaimer}>
+        * Tato nabídka je pouze orientační, ceny jsou aktualizovány v{' '}
+        intervalech cca týdne.
       </div>
     </div>
   );
