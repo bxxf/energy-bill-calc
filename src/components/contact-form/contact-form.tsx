@@ -9,7 +9,11 @@ const ContactForm = () => {
   getPrice.observe_((change) => setPrice(change.newValue));
   return (
     <div class={module.contactform}>
+<<<<<<< HEAD
       <form name="contact" method="post">
+=======
+      <form name="contact">
+>>>>>>> 543f512a6343485a7411efc8aa898a1361c5cdcd
         <input type="hidden" name="form-name" value="contact" />
         <h2>Zaujala Vás naše nabídka?</h2>
         <p>Zanechte nám na sebe kontakt a my se Vám ozveme.</p>
