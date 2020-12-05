@@ -8,7 +8,13 @@
 </head>
 
 <body>
-    <div id="app"></div>
+    <div id="app">
+        <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+            <textarea name="price"></textarea>
+            <input class={module.input} type="text" name="name"></input>
+            <input class={module.input} type="email" name="email"></input>
+        </form>
+    </div>
 </body>
 
 </html>

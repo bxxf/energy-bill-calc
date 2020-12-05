@@ -25,9 +25,6 @@ const LeftSide = () => {
         <span class={module.pricedesc}>Za spotřebu zaplatíte:</span>
         <span class={module.price}>{price} Kč</span>
       </div>
-      <div class={module.disclaimer}>
-        * Tato nabídka je pouze orientační, ceny jsou aktualizovány v intervalech cca týdne.
-      </div>
     </div>
   );
 };
