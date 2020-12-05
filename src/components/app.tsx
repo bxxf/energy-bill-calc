@@ -33,6 +33,7 @@ const App = () => {
         />
         <img
           class={module.image}
+          width="1024"
           srcset="images/image.jpg 1024px,
            images/image-mobile.jpg 767px"
           src="images/image.jpg"
