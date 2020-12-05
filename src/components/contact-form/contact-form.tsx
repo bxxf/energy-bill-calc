@@ -14,17 +14,17 @@ const ContactForm = () => {
         <h2>Zaujala Vás naše nabídka?</h2>
         <p>Zanechte nám na sebe kontakt a my se Vám ozveme.</p>
 
-        <textarea name="price" disabled>
+        <textarea name="price" hidden required>
           {price} Kč
         </textarea>
 
         <div class={module.inputgroup}>
           <label>Vaše jméno:</label>
-          <input class={module.input} type="text" name="name"></input>
+          <input class={module.input} type="text" name="name" required></input>
         </div>
         <div class={module.inputgroup}>
           <label>Váš email:</label>
-          <input class={module.input} type="email" name="email"></input>
+          <input class={module.input} type="email" name="email" required></input>
         </div>
 
         <input class={module.submit} type="submit" value="Odeslat"></input>
