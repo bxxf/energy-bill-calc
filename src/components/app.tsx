@@ -40,6 +40,22 @@ const App = () => {
         <MainForm />
         <ContactForm />
       </div>
+      <div class={module.footer}>
+        <div class={module.footer__branding}>
+          <h2>Kalkulačka Energií</h2>
+
+          <span class={module.footer__branding__email}>
+            placeholder@email.com
+          </span>
+          <p class={module.footer_branding__author}>
+            Developed with{' '}
+            <span role="img" aria-label="love">
+              🧡
+            </span>{' '}
+            by <a href="https://linkedin.com/in/brebera">Filip Brebera</a>.
+          </p>
+        </div>
+      </div>
     </>
   );
 };
