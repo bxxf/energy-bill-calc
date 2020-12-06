@@ -22,7 +22,10 @@ const LeftSide = () => {
         </h2>
       </div>
       <div>
-        <span class={module['left-side__calculation__description']}>
+        <span
+          class={module['left-side__calculation__description']}
+          aria-label="Cena spotřeby"
+        >
           Za spotřebu zaplatíte:
         </span>
         <span class={module['left-side__calculation__price']}>{price} Kč</span>

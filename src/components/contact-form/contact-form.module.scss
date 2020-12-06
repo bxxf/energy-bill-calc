@@ -20,6 +20,11 @@
     .contact__form__description {
       font-weight: bold;
     }
+    .contact__form__disclaimer {
+      font-size: 14px;
+      margin: 0;
+      color: rgb(95, 95, 95);
+    }
     width: 65%;
     @include mobile() {
       width: 100%;

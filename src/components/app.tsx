@@ -31,6 +31,7 @@ const App = () => {
             type="image/jpeg"
           />
           <img
+            aria-hidden="true"
             loading="eager"
             class={module['default-layout__background-image']}
             src="images/image.jpg"
@@ -52,7 +53,13 @@ const App = () => {
             <span role="img" aria-label="love">
               🧡
             </span>{' '}
-            by <a href="https://linkedin.com/in/brebera">Filip Brebera</a>
+            by{' '}
+            <a
+              href="https://linkedin.com/in/brebera"
+              aria-label="Author stránky"
+            >
+              Filip Brebera
+            </a>
           </p>
         </div>
       </div>

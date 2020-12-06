@@ -26,6 +26,9 @@
 .footer {
   background-color: #f1f1f1;
   padding: 3% 17.5%;
+  h2 {
+    margin-top: 0;
+  }
   @include mobile() {
     padding: 5% calc(25px + 1%);
   }
