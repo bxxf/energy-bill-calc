@@ -13,15 +13,3 @@ $desktop: 900px !default;
     @content;
   }
 }
-
-.no-mobile {
-  @include mobile() {
-    display: none;
-  }
-}
-.no-desktop {
-  display: none;
-  @include mobile() {
-    display: block;
-  }
-}

@@ -1268,11 +1268,6 @@
   dependencies:
     mkdirp "^1.0.4"
 
-"@storeon/solidjs@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@storeon/solidjs/-/solidjs-1.0.0.tgz#4f6c83dd6398015dad74799a8fdd8a5cfffb1f5b"
-  integrity sha512-CKYtwPfLqAXKoZg59NoRIWt2N1f4sBdGcctuqCK9LhWi3t/pNzagksZ6y2CXpWUhgrpYAFJrvqVzFc+SLww2Lw==
-
 "@types/anymatch@*":
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/@types/anymatch/-/anymatch-1.3.1.tgz#336badc1beecb9dacc38bea2cf32adf627a8421a"
@@ -7175,11 +7170,6 @@ stdout-stream@^1.4.0:
   integrity sha512-j4emi03KXqJWcIeF8eIXkjMFN1Cmb8gUlDYGeBALLPo5qdyTfA9bOtl8m33lRoC+vFMkP3gl0WsDr6+gzxbbTA==
   dependencies:
     readable-stream "^2.0.1"
-
-storeon@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/storeon/-/storeon-3.1.1.tgz#7ecb94e7c546eacaf973e70268e1dd5ace30826c"
-  integrity sha512-rThlNtK0GeOKh2tUgAuh1W9fYeD8I9DKIptdxV0WYUJdMucb4bFUKzfqpimCHOJ2eK+ix86J/UetwoeDx+dpTQ==
 
 stream-to-buffer@^0.1.0:
   version "0.1.0"
