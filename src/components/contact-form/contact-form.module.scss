@@ -9,7 +9,7 @@
   width: 100%;
   padding: 5% 0;
   @include mobile() {
-    padding: 5% 10%;
+    padding: 5% 25px;
   }
 
   .contact__form {
@@ -25,6 +25,9 @@
       width: 100%;
     }
     margin: 50px auto;
+    @include mobile() {
+      margin: 0 auto;
+    }
 
     .contact__form__input-group {
       text-align: left;
