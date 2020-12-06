@@ -45,7 +45,7 @@ const ContactForm = () => {
           class={module['contact__form__submit-button']}
           type="submit"
           value="Odeslat"
-        />
+        />       
       </form>
     </div>
   );
