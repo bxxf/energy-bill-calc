@@ -1,6 +1,6 @@
 @import '/src/assets/scss/_breakpoints';
 
-.leftside {
+.left-side {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -14,15 +14,19 @@
     width: 100%;
   }
 
-  h1 {
+  .left-side__header {
     color: white;
     margin: 0;
   }
-  p {
+  .left-side__description {
     color: white;
+    margin: 0;
+    margin-top: 15px;
+    font-size: 15px;
+    font-weight: normal;
   }
 
-  .price {
+  .left-side__calculation__price {
     margin-top: 20px;
     display: block;
     color: white;
@@ -35,7 +39,7 @@
     }
   }
 
-  .pricedesc {
+  .left-side__calculation__description {
     display: block;
     font-size: 20px;
     margin-top: 50%;

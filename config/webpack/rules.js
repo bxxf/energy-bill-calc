@@ -1,4 +1,5 @@
 const path = require('path');
+// eslint-disable-next-line import/no-extraneous-dependencies
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const isProd = process.env.NODE_ENV !== 'development';
@@ -32,8 +33,12 @@ module.exports = [
       {
         loader: 'css-loader',
         options: {
-          modules: true,
           sourceMap: !isProd,
+          modules: {
+            localIdentName: isProd
+              ? '[name]--[local]___[hash:base64:5]'
+              : '[path][name]--[local]___[hash:base64:5]',
+          },
         },
       },
       {
