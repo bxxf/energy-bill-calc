@@ -38,7 +38,9 @@ const App = () => {
             alt="Background"
           />
         </picture>
-        <MainForm />
+        <div class={module.fullpage}>
+          <MainForm />
+        </div>
         <ContactForm />
       </div>
       <div class={module.footer}>

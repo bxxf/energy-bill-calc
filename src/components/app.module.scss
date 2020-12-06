@@ -12,6 +12,12 @@
   @include mobile() {
     padding: 1% 2%;
   }
+  .fullpage {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   .default-layout__background-image {
     position: absolute;
