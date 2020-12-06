@@ -1,5 +1,8 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -37,6 +40,7 @@ module.exports = {
           }
         : undefined,
     }),
+    new PreloadWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [{ from: 'src/static' }],
     }),
