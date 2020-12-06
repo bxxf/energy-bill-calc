@@ -7,7 +7,10 @@
     margin-top: 50px;
   }
   width: 100%;
-  padding: 5% 10%;
+  padding: 5% 0;
+  @include mobile() {
+    padding: 5% 10%;
+  }
 
   .contact__form {
     .contact__form__header {
@@ -17,7 +20,7 @@
     .contact__form__description {
       font-weight: bold;
     }
-    width: 80%;
+    width: 65%;
     @include mobile() {
       width: 100%;
     }
@@ -38,12 +41,15 @@
         padding: 18px 5px;
       }
       textarea {
-        display: none;
+        padding: 18px 5px !important;
+        font-family: Lato, sans-serif;
+        height: 55px;
+        max-width: 100%;
       }
     }
     .contact__form__submit-button {
       -webkit-appearance: none;
-      transition: background-color 0.5s ease-out;
+      transition: background-color 0.3s ease-out;
       cursor: pointer;
       margin-top: 35px;
       border-radius: 5px;

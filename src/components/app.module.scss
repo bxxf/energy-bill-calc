@@ -23,3 +23,25 @@
     z-index: 0;
   }
 }
+.footer {
+  background-color: #f1f1f1;
+  padding: 3% 17.5%;
+  @include mobile() {
+    padding: 5% 10%;
+  }
+  .footer_branding__author {
+    margin: 10px 0 0 0;
+    font-size: 14px;
+    color: rgb(82, 82, 82);
+    a:link,
+    a:visited {
+      text-decoration: none;
+      font-weight: bold;
+      color: rgb(231, 123, 0);
+      margin: 0;
+    }
+  }
+  .footer__branding__email {
+    margin: 0;
+  }
+}
