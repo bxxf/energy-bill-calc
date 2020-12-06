@@ -52,7 +52,7 @@ const App = () => {
             <span role="img" aria-label="love">
               🧡
             </span>{' '}
-            by <a href="https://linkedin.com/in/brebera">Filip Brebera</a>.
+            by <a href="https://linkedin.com/in/brebera">Filip Brebera</a>
           </p>
         </div>
       </div>
