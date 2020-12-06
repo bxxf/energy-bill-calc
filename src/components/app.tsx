@@ -31,6 +31,7 @@ const App = () => {
             type="image/jpeg"
           />
           <img
+            loading="eager"
             class={module['default-layout__background-image']}
             src="images/image.jpg"
             alt="Background"
