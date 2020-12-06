@@ -10,7 +10,8 @@
     "ecmaFeatures": {
       "legacyDecorators": true,
       "jsx": true
-    }
+    },
+    "project": "./tsconfig.json"
   },
   "settings": {
     "react": {
@@ -20,14 +21,20 @@
   "rules": {
     "react/react-in-jsx-scope": "off",
     "react/no-unknown-property": "off",
-    "camelcase": "off"
+    "camelcase": "off",
+    "jsx-a11y/label-has-for": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "no-underscore-dangle": "off",
+    "@typescript-eslint/indent": "off"
   },
   "extends": [
+    "airbnb-typescript",
     "standard",
     "standard-react",
     "plugin:prettier/recommended",
     "prettier/standard",
-    "prettier/react"
+    "prettier/react",
+    "plugin:jsx-a11y/strict"
   ],
-  "plugins": ["@typescript-eslint", "prettier"]
+  "plugins": ["@typescript-eslint", "prettier", "jsx-a11y"]
 }

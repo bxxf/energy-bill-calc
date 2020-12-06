@@ -1,5 +1,5 @@
 @import '/src/assets/scss/_breakpoints';
-.contactform {
+.contact {
   background: white;
   border-radius: 10px;
   margin-top: 100px;
@@ -8,38 +8,41 @@
   }
   width: 100%;
   padding: 5% 10%;
-  h2 {
-    font-size: 30px;
-    margin-bottom: 0;
-  }
-  p {
-    font-weight: bold;
-  }
-  form {
+
+  .contact__form {
+    .contact__form__header {
+      font-size: 30px;
+      margin-bottom: 0;
+    }
+    .contact__form__description {
+      font-weight: bold;
+    }
     width: 80%;
     @include mobile() {
       width: 100%;
     }
     margin: 50px auto;
 
-    .inputgroup {
+    .contact__form__input-group {
       text-align: left;
       margin-top: 30px;
+
+      .contact__form__input-group__input {
+        display: block;
+        width: 100%;
+        margin-top: 5px;
+        border: none;
+        border-bottom: 2px solid gray;
+        flex: 1;
+        font-size: 16px;
+        padding: 18px 5px;
+      }
+      textarea {
+        display: none;
+      }
     }
-    .input {
-      display: block;
-      width: 100%;
-      margin-top: 5px;
-      border: none;
-      border-bottom: 2px solid gray;
-      flex: 1;
-      font-size: 16px;
-      padding: 18px 5px;
-    }
-    textarea {
-      display: none;
-    }
-    .submit {
+    .contact__form__submit-button {
+      -webkit-appearance: none;
       transition: background-color 0.5s ease-out;
       cursor: pointer;
       margin-top: 35px;

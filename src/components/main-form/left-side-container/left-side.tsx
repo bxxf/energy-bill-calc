@@ -6,24 +6,26 @@ const LeftSide = () => {
   const { getPrice } = useContext(ConsumptionStore);
   const [price, setPrice] = createSignal(0);
 
-  getPrice.observe_((change) => setPrice(change.newValue));
+  getPrice.observe_((change: any) => setPrice(change.newValue));
 
   return (
-    <div class={module.leftside}>
+    <div class={module['left-side']}>
       <div>
-        <h1>
+        <h1 class={module['left-side__header']}>
           Kalkulačka
           <br />
           Energií
         </h1>
-        <p>
+        <h2 class={module['left-side__description']}>
           Předvídač ceny energií určený pro výpočet výdajů za energie (elektřina
           &nbsp;a plyn).
-        </p>
+        </h2>
       </div>
       <div>
-        <span class={module.pricedesc}>Za spotřebu zaplatíte:</span>
-        <span class={module.price}>{price} Kč</span>
+        <span class={module['left-side__calculation__description']}>
+          Za spotřebu zaplatíte:
+        </span>
+        <span class={module['left-side__calculation__price']}>{price} Kč</span>
       </div>
     </div>
   );

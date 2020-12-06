@@ -1,6 +1,6 @@
 @import '/src/assets/scss/_breakpoints';
 
-.rightside {
+.right-side {
   flex: 1;
   background-color: white;
   border-radius: 0 10px 10px 0;
@@ -9,34 +9,32 @@
     padding: 30px 25px;
     border-radius: 0 0 10px 10px;
   }
-
-  h2 {
+  .right-side__header {
     font-size: 25px;
     margin: 0;
   }
-  label {
-    font-weight: bold;
-  }
-  .seconddesc {
+  .right-side__description {
     margin-top: 5px;
     margin-bottom: 40px;
   }
-}
+  .right-side__form {
+    margin-top: 20px;
+    .right-side__form__label {
+      font-weight: bold;
+    }
+  }
 
-form {
-  margin-top: 20px;
-}
+  .right-side__pricelist {
+    margin-top: 50px;
+    padding: 5% 0;
+    font-size: 15px;
+    color: rgb(61, 61, 61);
+    border-top: 1px solid rgb(196, 196, 196);
+  }
 
-.pricesinfo {
-  margin-top: 50px;
-  padding: 5% 0;
-  font-size: 15px;
-  color: rgb(61, 61, 61);
-  border-top: 1px solid rgb(196, 196, 196);
-}
-
-.disclaimer {
-  color: rgb(99, 99, 99);
-  font-size: 14px;
-  margin-top: 10px;
+  .right-side__price-disclaimer {
+    color: rgb(99, 99, 99);
+    font-size: 14px;
+    margin-top: 10px;
+  }
 }
