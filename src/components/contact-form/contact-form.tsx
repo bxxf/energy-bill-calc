@@ -1,6 +1,13 @@
 /* eslint-disable react/button-has-type */
-import { createSignal, useContext, Show } from 'solid-js';
-import { observe } from 'mobx';
+
+import {
+  useContext,
+  Show,
+  createSignal,
+  createState,
+  createEffect,
+  createMemo,
+} from 'solid-js';
 import { fetch as polyfetch } from 'whatwg-fetch';
 import { load } from 'recaptcha-v3';
 import module from './contact-form.module.scss';
@@ -9,13 +16,14 @@ import ConsumptionStore from '../../stores/store';
 import * as client from '../../../api/client.gen';
 
 const ContactForm = () => {
-  const [loading, setLoading] = createSignal(false);
-
   const api = new client.EmailService(
     'https://kalkulacka-energii.ey.r.appspot.com',
     polyfetch,
   );
-
+  const [state, setState] = createState({
+    buttonText: 'Odeslat',
+    disabled: false,
+  });
   const { getPrice, consumption } = useContext(ConsumptionStore);
   function sendEmail(
     data_email: string,
@@ -39,16 +47,16 @@ const ContactForm = () => {
             body: data_body,
             token,
           })
-          .then(() => setLoading(false));
+          .then(() => setState({ buttonText: 'Odesláno, děkujeme.' }));
       });
     });
   }
   function handleSubmit(event: any) {
     event.preventDefault();
-    if (!event.target.checkValidity() || loading()) {
+    if (!event.target.checkValidity()) {
       return;
     }
-    setLoading(true);
+    setState({ buttonText: 'Odesílá se..', disabled: true });
 
     const data = new FormData(event.target);
     sendEmail(
@@ -60,7 +68,6 @@ const ContactForm = () => {
       data.get('message') as string,
     );
   }
-
   return (
     <div class={module.contact}>
       <form
@@ -113,18 +120,20 @@ const ContactForm = () => {
             id="message"
             aria-describedby="message-label"
             class={module['contact__form__input-group__input']}
-            placeholder="Příklad: Dobrý den, chtěl bych se zeptat na..."
+            placeholder="Příklad: Chtěl bych se zeptat na..."
           />
         </div>
         <p class={module.contact__form__disclaimer}>
           Položky označené * jsou <span id="required">povinné</span>.
         </p>
-
-        <input
-          class={module['contact__form__submit-button']}
-          type="submit"
-          value="Odeslat"
-        />
+        {createMemo(() => (
+          <input
+            class={module['contact__form__submit-button']}
+            type="submit"
+            value={state.buttonText}
+            disabled={state.disabled}
+          />
+        ))}
       </form>
     </div>
   );
