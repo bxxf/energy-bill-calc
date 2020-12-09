@@ -38,9 +38,8 @@ const ContactForm = () => {
               token,
             },
           )
-          .then(({ status }) => {
-            if (status) setState({ buttonText: 'Odesláno, děkujeme.' });
-            else setState({ buttonText: 'Došlo k chybě :(' });
+          .then() => {
+            setState({ buttonText: 'Odesláno, děkujeme.' });
           });
       });
     });
