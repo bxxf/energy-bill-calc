@@ -1,4 +1,5 @@
 /* eslint-disable react/button-has-type */
+
 import {
   useContext,
   Show,
@@ -67,7 +68,6 @@ const ContactForm = () => {
       data.get('message') as string,
     );
   }
-
   return (
     <div class={module.contact}>
       <form
