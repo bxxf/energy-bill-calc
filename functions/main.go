@@ -38,13 +38,13 @@ type Req struct {
 
 func SendEmail(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodOptions {
-    w.Header().Set("Access-Control-Allow-Origin", "https://kalkulacka-energii.eu, http://localhost")
+    w.Header().Set("Access-Control-Allow-Origin", "https://kalkulacka-energii.eu")
     w.Header().Set("Access-Control-Allow-Methods", "POST")
     w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 		w.Header().Set("Access-Control-Max-Age", "3600")
 		return
 	}
-	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Origin", "https://kalkulacka-energii.eu")
 	var req Req;
 
 	if r.Body == nil {
