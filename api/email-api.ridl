@@ -4,4 +4,4 @@ name = email-service
 version = v1.0.0
 
 service EmailService
-  - SendEmail(email: string, name: string, body: string, price: uint64, electricity: float32, gas: float32) => (status: bool)
+  - SendEmail(email: string, name: string, body: string, price: uint64, electricity: float32, gas: float32, token: string) => (status: bool)

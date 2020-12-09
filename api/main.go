@@ -8,12 +8,14 @@ import (
 	"net/http"
 	"os"
 	"strconv"
+	"time"
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/cors"
 	"github.com/joho/godotenv"
 	_ "github.com/joho/godotenv/autoload"
+	"gopkg.in/ezzarghili/recaptcha-go.v4"
 	gomail "gopkg.in/mail.v2"
 )
 
@@ -32,9 +34,7 @@ func startServer() error {
 	r.Use(middleware.Recoverer)
 
 	cors := cors.New(cors.Options{
-		// AllowedOrigins: []string{"https://foo.com"}, // Use this to allow specific origin hosts
-		AllowedOrigins: []string{"*"},
-		// AllowOriginFunc:  func(r *http.Request, origin string) bool { return true },
+		AllowedOrigins: []string{"https://kalkulacka-energii.eu", "http://localhost:8080"}, 
 		AllowedMethods:   []string{"POST", "OPTIONS"},
 		AllowedHeaders:   []string{"Accept", "Authorization", "Content-Type", "X-CSRF-Token"},
 		ExposedHeaders:   []string{"Link"},
@@ -56,14 +56,21 @@ func startServer() error {
 type EmailServiceRPC struct {
 }
 
-func (s *EmailServiceRPC) SendEmail(ctx context.Context, email string, name string, body string, price uint64, electricity float32, gas float32) (bool, error) {
+func (s *EmailServiceRPC) SendEmail(ctx context.Context, email string, name string, body string, price uint64, electricity float32, gas float32, token string) (bool, error) {
+
+	captcha, _ := recaptcha.NewReCAPTCHA(os.Getenv("RECAPTCHA_SECRET"), recaptcha.V3, 10 * time.Second) 
+	err := captcha.Verify(token)
+	if err != nil {
+    log.Fatal(err);
+	}
+
 	 m := gomail.NewMessage()
 
   // Set E-Mail sender
   m.SetHeader("From", "kalkulackaenergii@gmail.com")
 
   // Set E-Mail receivers
-  m.SetHeader("To", "breberafilip@icloud.com")
+  m.SetHeader("To", os.Getenv("RECIPIENT_EMAIL"))
 
   // Set E-Mail subject
 	m.SetHeader("Subject", "Nová odpověď na formulář")
@@ -81,7 +88,7 @@ func (s *EmailServiceRPC) SendEmail(ctx context.Context, email string, name stri
   if err := d.DialAndSend(m); err != nil {
     fmt.Println(err)
 	}
-	fmt.Println("Sent email to " + email)
+	fmt.Println("Sent email to " + os.Getenv("RECIPIENT_EMAIL"))
 
 	return true, nil
 }

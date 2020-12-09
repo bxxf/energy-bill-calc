@@ -11,5 +11,6 @@ require (
 	golang.org/x/mod v0.4.0 // indirect
 	golang.org/x/tools v0.0.0-20201208211828-de58e7c01d49 // indirect
 	gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc // indirect
+	gopkg.in/ezzarghili/recaptcha-go.v4 v4.3.0
 	gopkg.in/mail.v2 v2.3.1
 )
