@@ -10,16 +10,14 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/GoogleCloudPlatform/functions-framework-go/funcframework"
 	_ "github.com/joho/godotenv/autoload"
 	"gopkg.in/ezzarghili/recaptcha-go.v4"
 	gomail "gopkg.in/mail.v2"
-
-	"github.com/GoogleCloudPlatform/functions-framework-go/funcframework"
 )
 
 func main() {
 	funcframework.RegisterHTTPFunction("/", SendEmail)
-	// Use PORT environment variable, or default to 8080.
 	port := "8080"
 	if envPort := os.Getenv("PORT"); envPort != "" {
 		port = envPort
@@ -27,7 +25,6 @@ func main() {
 	if err := funcframework.Start(port); err != nil {
 		log.Fatalf("framework.Start: %v\n", err)
 	}
-
 }
 type Req struct {
 	Name string `json:"name"`
@@ -48,7 +45,6 @@ func SendEmail(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	w.Header().Set("Access-Control-Allow-Origin", "*")
-
 	var req Req;
 
 	if r.Body == nil {
@@ -65,40 +61,20 @@ func SendEmail(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-
 	captchaErr := captcha.Verify(req.Token)
 	if captchaErr != nil {
     log.Fatal(err);
 	}
              
 	m := gomail.NewMessage()
-
-  // Set E-Mail sender
   m.SetHeader("From", "kalkulackaenergii@gmail.com")
-
-  // Set E-Mail receivers
   m.SetHeader("To", os.Getenv("RECIPIENT_EMAIL"))
-
-  // Set E-Mail subject
 	m.SetHeader("Subject", "Nová odpověď na formulář")
-
-  // Set E-Mail body. You can set plain text or html with text/html
   m.SetBody("text/plain", "Jméno: " + req.Name + "\n" + "Email: " + req.Email + "\n" + "Cena: " + strconv.FormatUint(req.Price, 10) + " Kč \n" + "Elektřina: " + fmt.Sprintf("%f", req.Electricity) + " kWH \n" + "Plyn: " + fmt.Sprintf("%f", req.Gas) + " kWH \n" + req.Body)
-  // Settings for SMTP server
   d := gomail.NewDialer("smtp.gmail.com", 587, "kalkulackaenergii@gmail.com", os.Getenv("GMAIL_TOKEN"))
-
-  // This is only needed when SSL/TLS certificate is not valid on server.
-  // In production this should be set to false.
   d.TLSConfig = &tls.Config{InsecureSkipVerify: true}
-
-  // Now send E-Mail
   if err := d.DialAndSend(m); err != nil {
-		fmt.Println("send error")
-    fmt.Println(err)
+    log.Fatal(err);
 	}
-	fmt.Println("Email sent.")
-
 	return
-		 
-		 
 }
