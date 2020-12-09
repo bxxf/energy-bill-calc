@@ -38,9 +38,7 @@ const ContactForm = () => {
               token,
             },
           )
-          .then() => {
-            setState({ buttonText: 'Odesláno, děkujeme.' });
-          });
+          .then(() => setState({ buttonText: 'Odesláno, děkujeme.' }));
       });
     });
   }
