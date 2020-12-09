@@ -1,25 +1,13 @@
 /* eslint-disable react/button-has-type */
 
-import {
-  useContext,
-  Show,
-  createSignal,
-  createState,
-  createEffect,
-  createMemo,
-} from 'solid-js';
+import { useContext, createMemo, createState } from 'solid-js';
 import { fetch as polyfetch } from 'whatwg-fetch';
 import { load } from 'recaptcha-v3';
+import axios from 'axios';
 import module from './contact-form.module.scss';
 import ConsumptionStore from '../../stores/store';
 
-import * as client from '../../../api/client.gen';
-
 const ContactForm = () => {
-  const api = new client.EmailService(
-    'https://kalkulacka-energii.ey.r.appspot.com',
-    polyfetch,
-  );
   const [state, setState] = createState({
     buttonText: 'Odeslat',
     disabled: false,
@@ -37,17 +25,23 @@ const ContactForm = () => {
       autoHideBadge: true,
     }).then((recaptcha) => {
       recaptcha.execute('contact').then((token) => {
-        api
-          .sendEmail({
-            email: data_email,
-            name: data_name,
-            price: data_price,
-            electricity: data_electricity,
-            gas: data_gas,
-            body: data_body,
-            token,
-          })
-          .then(() => setState({ buttonText: 'Odesláno, děkujeme.' }));
+        axios
+          .post(
+            'https://europe-west3-kalkulacka-energii.cloudfunctions.net/SendEmail',
+            {
+              name: data_name,
+              email: data_email,
+              price: data_price,
+              gas: data_gas,
+              electricity: data_electricity,
+              body: data_body,
+              token,
+            },
+          )
+          .then(({ status }) => {
+            if (status) setState({ buttonText: 'Odesláno, děkujeme.' });
+            else setState({ buttonText: 'Došlo k chybě :(' });
+          });
       });
     });
   }
